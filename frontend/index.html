@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vice Zone - games, consoles, PC gaming e retrô.">
+  <title>Vice Zone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <div class="header-inner">
+      <a class="vice-logo" href="#inicio" aria-label="Vice Zone - início">
+        <span class="vice-word">VICE</span>
+        <span class="zone-word">ZONE</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#inicio">INÍCIO</a>
+        <a href="#produtos">PRODUTOS</a>
+        <a href="#categorias">CATEGORIAS</a>
+        <a href="#retro">RETRÔ</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-wrap" id="searchWrap">
+          <button class="icon-circle" id="searchToggle" type="button" aria-label="Abrir busca">🔍</button>
+          <input id="searchInput" class="search-input" type="search" placeholder="Buscar produto..." autocomplete="off">
+        </div>
+
+        <button class="icon-circle cart-trigger" id="openCart" type="button" aria-label="Abrir carrinho">
+          🛒
+          <span id="cartCount" class="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section" aria-label="Destaque Vice Zone">
+      <div class="hero-grid-floor" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="kicker cyan">GAMES • CONSOLES • HARDWARE • RETRÔ</p>
+        <h1>VICE <span>ZONE</span></h1>
+        <p>Games, consoles, hardware e nostalgia em um só lugar.</p>
+        <a class="neon-button" href="#produtos">EXPLORAR A LOJA</a>
+      </div>
+      <div class="hero-orb" aria-hidden="true"></div>
+    </section>
+
+    <section class="benefits-strip" aria-label="Vantagens da loja">
+      <div class="benefit-item">
+        <span class="benefit-icon">🚚</span>
+        <div><strong>ENTREGA RÁPIDA</strong><small>Enviamos para todo o Brasil</small></div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">🔒</span>
+        <div><strong>COMPRA SEGURA</strong><small>Pagamento protegido</small></div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">🎮</span>
+        <div><strong>GAME LOVERS</strong><small>Feito por quem entende</small></div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">♻️</span>
+        <div><strong>NOVOS E USADOS</strong><small>Do atual ao retrô</small></div>
+      </div>
+    </section>
+
+    <section class="categories-section" id="categorias">
+      <div class="container">
+        <p class="kicker pink">EXPLORE</p>
+        <h2 class="display-title">CATEGORIAS</h2>
+
+        <div class="category-grid">
+          <button class="category-card category-games" type="button" data-category-card="Jogos">
+            <span class="category-emoji">🎮</span>
+            <strong>JOGOS</strong>
+            <small>PlayStation, Xbox, Nintendo e PC</small>
+          </button>
+          <button class="category-card category-consoles" type="button" data-category-card="Consoles">
+            <span class="category-emoji">🕹️</span>
+            <strong>CONSOLES</strong>
+            <small>Das gerações atuais aos clássicos</small>
+          </button>
+          <button class="category-card category-pc" type="button" data-category-card="PC">
+            <span class="category-emoji">💻</span>
+            <strong>PC GAMING</strong>
+            <small>GPUs, CPUs, RAM e periféricos</small>
+          </button>
+          <button class="category-card category-retro" type="button" data-category-card="Retrô">
+            <span class="category-emoji">👾</span>
+            <strong>RETRÔ</strong>
+            <small>Relíquias que marcaram gerações</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="produtos">
+      <div class="container">
+        <div class="products-heading-row">
+          <div>
+            <p class="kicker pink">LOJA</p>
+            <h2 class="display-title">DESTAQUES</h2>
+          </div>
+
+          <div class="filters" id="filters">
+            <button class="filter-button active" type="button" data-category="Todos">TODOS</button>
+            <button class="filter-button" type="button" data-category="Jogos">JOGOS</button>
+            <button class="filter-button" type="button" data-category="Consoles">CONSOLES</button>
+            <button class="filter-button" type="button" data-category="PC">PC</button>
+            <button class="filter-button" type="button" data-category="Retrô">RETRÔ</button>
+          </div>
+        </div>
+
+        <div id="catalogMessage" class="catalog-message hidden" role="status"></div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="retro-section" id="retro">
+      <div class="retro-grid-floor" aria-hidden="true"></div>
+      <div class="retro-inner container">
+        <div class="retro-copy">
+          <p class="kicker cyan">FROM THE 80s</p>
+          <h2>O FUTURO<br>ENCONTRA O <span>PASSADO</span></h2>
+          <p>Consoles clássicos, jogos lendários e aquela nostalgia que não sai de moda.</p>
+          <button class="neon-button" id="exploreRetro" type="button">EXPLORAR RETRÔ</button>
+        </div>
+
+        <div class="sun-wrap" aria-hidden="true">
+          <div class="retro-sun"></div>
+          <div class="sun-lines"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter-section">
+      <div class="container newsletter-inner">
+        <div>
+          <p class="kicker pink">VICE ZONE CLUB</p>
+          <h2 class="display-title newsletter-title">ENTRE PARA A ZONA</h2>
+          <p>Receba novidades, promoções e lançamentos diretamente no seu e-mail.</p>
+        </div>
+
+        <form class="newsletter-form" id="newsletterForm">
+          <input id="newsletterEmail" type="email" placeholder="Seu melhor e-mail" required>
+          <button type="submit">INSCREVER</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a class="vice-logo footer-logo" href="#inicio">
+          <span class="vice-word">VICE</span>
+          <span class="zone-word">ZONE</span>
+        </a>
+        <p>Games, consoles, hardware e nostalgia desde a primeira geração.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>LOJA</h3>
+        <a href="#produtos" data-footer-category="Jogos">Jogos</a>
+        <a href="#produtos" data-footer-category="Consoles">Consoles</a>
+        <a href="#produtos" data-footer-category="PC">PC Gaming</a>
+        <a href="#retro">Retrô</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>ATENDIMENTO</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Entregas</a>
+        <a href="#">Trocas e devoluções</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div class="footer-column social-column">
+        <h3>SIGA A VICE ZONE</h3>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="TikTok">TK</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 Vice Zone. Todos os direitos reservados.</span>
+      <span>Projeto acadêmico — Sistemas Distribuídos</span>
+    </div>
+  </footer>
+
+  <aside class="cart-sidebar" id="cartSidebar" aria-hidden="true">
+    <div class="cart-header">
+      <div>
+        <span class="kicker pink">VICE ZONE</span>
+        <h2>SEU CARRINHO</h2>
+      </div>
+      <button class="close-cart" id="closeCart" type="button" aria-label="Fechar carrinho">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <label class="customer-field">
+        <span>Nome para o pedido</span>
+        <input id="customerName" type="text" maxlength="150" placeholder="Ex.: Vinicius">
+      </label>
+      <div class="cart-total-line">
+        <span>TOTAL</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button id="checkoutButton" class="checkout-button" type="button">FINALIZAR COMPRA</button>
+      <small>O pedido é enviado ao Flask e armazenado no PostgreSQL.</small>
+      <div id="checkoutMessage" class="checkout-message hidden"></div>
+    </div>
+  </aside>
+
+  <div class="page-overlay" id="overlay"></div>
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

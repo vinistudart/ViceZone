@@ -1,0 +1,63 @@
+services:
+  database:
+    image: postgres:16-alpine
+    container_name: vice-zone-db
+    environment:
+      POSTGRES_DB: vicezone
+      POSTGRES_USER: vicezone
+      POSTGRES_PASSWORD: vicezone
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vicezone -d vicezone"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - vice-zone-network
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./api
+    container_name: vice-zone-api
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_NAME: vicezone
+      DB_USER: vicezone
+      DB_PASSWORD: vicezone
+    depends_on:
+      database:
+        condition: service_healthy
+    expose:
+      - "5000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - vice-zone-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: vice-zone-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - vice-zone-network
+    restart: unless-stopped
+
+networks:
+  vice-zone-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
